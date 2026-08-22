@@ -36,7 +36,7 @@ def nouvelle_grille(varFile, vatTitle):
 
 
 if "mots" not in st.session_state:
-    nouvelle_grille()
+    nouvelle_grille("mots_FR.csv", "Mot")
 
 
 # --------------------------
@@ -54,7 +54,7 @@ st.title("CodeNames")
 # if st.button("🔄 Nouvelle grille"):
 #     nouvelle_grille("mots_FR.csv", "Mot")
 #     st.rerun()
-nouvelle_grille("mots_FR.csv", "Mot")
+
 
 col1, col2, col3 = st.columns([20, 20, 60])
 
