@@ -55,8 +55,7 @@ st.title("CodeNames")
 #     nouvelle_grille("mots_FR.csv", "Mot")
 #     st.rerun()
 
-
-col1, col2, col3 = st.columns([20, 20, 60])
+col1, col2, col3, c1, c2, c3, c4 = st.columns([20, 20, 60, 10, 10, 10, 10])
 
 with col1:
     if st.button("🇫🇷 🔄 Nouvelle grille"):
@@ -69,6 +68,30 @@ with col2:
         st.session_state.langue = "en"
         nouvelle_grille("mots_EN.csv", "Word")
         st.rerun()
+
+
+# --------------------------
+# Compteurs
+# --------------------------
+nb_defaut = st.session_state.couleurs.count(COULEUR_DEFAUT)
+nb_bleu = st.session_state.couleurs.count(COULEUR_BLEU)
+nb_rouge = st.session_state.couleurs.count(COULEUR_ROUGE)
+nb_beige = st.session_state.couleurs.count(COULEUR_BEIGE)
+nb_gris = st.session_state.couleurs.count(COULEUR_GRIS)
+
+#c1, c2, c3, c4 = st.columns(4)
+
+with c1:
+    st.markdown(f"### 🟦 {nb_bleu}")
+
+with c2:
+    st.markdown(f"### 🟥 {nb_rouge}")
+
+with c3:
+    st.markdown(f"### 🟨 {nb_beige}")
+
+with c4:
+    st.markdown(f"### ⬛ {nb_gris}")
 
 # --------------------------
 # CSS
@@ -170,6 +193,7 @@ for ligne in range(NB_LIGNES):
             mot = st.session_state.mots[index]
             mot = mot[:1].upper() + mot[1:]
 
+            #st.markdown(f"{index}")
             st.markdown(
                 f"""
                 <div style="
